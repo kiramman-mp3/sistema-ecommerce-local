@@ -35,7 +35,8 @@ export const AuthProvider = ({ children }) => {
 
     if (user && token) {
       console.log('[SSE] Connecting to notification stream...');
-      eventSource = new EventSource(`http://${window.location.hostname}:5000/api/notifications/stream?token=${token}`);
+      const API_URL = import.meta.env.VITE_API_URL || `http://${window.location.hostname}:5000/api`;
+      eventSource = new EventSource(`${API_URL}/notifications/stream?token=${token}`);
 
       eventSource.onmessage = (event) => {
         try {
