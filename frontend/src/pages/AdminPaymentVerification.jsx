@@ -10,6 +10,8 @@ import Toast from '../components/Toast';
 import ConfirmModal from '../components/ConfirmModal';
 import { useToast } from '../hooks/useToast';
 
+const API_URL = import.meta.env.VITE_API_URL || `http://${window.location.hostname}:5000/api`;
+
 const AdminPaymentVerification = () => {
   const [payments, setPayments] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -45,7 +47,7 @@ const AdminPaymentVerification = () => {
       
       // Fetch all payments (not just pending)
       const response = await fetch(
-        `http://localhost:5000/api/orders/admin/payments`,
+        `${API_URL}/orders/admin/payments`,
         {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('tungu_token')}`
@@ -90,7 +92,7 @@ const AdminPaymentVerification = () => {
     try {
       setProcessingId(selectedPaymentId);
       const response = await fetch(
-        `http://localhost:5000/api/orders/admin/payments/${selectedPaymentId}/approve`,
+        `${API_URL}/orders/admin/payments/${selectedPaymentId}/approve`,
         {
           method: 'PATCH',
           headers: {
@@ -132,7 +134,7 @@ const AdminPaymentVerification = () => {
     try {
       setProcessingId(selectedPaymentId);
       const response = await fetch(
-        `http://localhost:5000/api/orders/admin/payments/${selectedPaymentId}/reject`,
+        `${API_URL}/orders/admin/payments/${selectedPaymentId}/reject`,
         {
           method: 'PATCH',
           headers: {

@@ -87,7 +87,8 @@ const Checkout = () => {
         formData.append('receipt', receipt);
       }
 
-      const response = await fetch(`http://${window.location.hostname}:5000/api/orders/checkout`, {
+      const API_URL = import.meta.env.VITE_API_URL || `http://${window.location.hostname}:5000/api`;
+      const response = await fetch(`${API_URL}/orders/checkout`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
