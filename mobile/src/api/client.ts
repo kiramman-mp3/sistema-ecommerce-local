@@ -7,7 +7,7 @@ const getBaseUrl = () => {
     const ip = debuggerHost ? debuggerHost.split(':')[0] : 'localhost';
     return `http://${ip}:5000/api`;
   }
-  return 'https://tungumarket-production.up.railway.app/api';
+  return 'https://tungumarket.madebyjohan.xyz/api';
 };
 
 export const API_BASE_URL = getBaseUrl();
