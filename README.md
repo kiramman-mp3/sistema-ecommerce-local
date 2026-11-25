@@ -129,8 +129,8 @@ Sigue estos pasos para clonar y ejecutar TunguMarket localmente utilizando las h
 
 ### 1. Clonar el Repositorio
 ```bash
-git clone https://github.com/JohanRod/TunguMarket.git
-cd TunguMarket
+git clone https://github.com/kiramman-mp3/sistema-ecommerce-local.git
+cd sistema-ecommerce-local
 ```
 
 ### 2. Configurar Variables de Entorno
